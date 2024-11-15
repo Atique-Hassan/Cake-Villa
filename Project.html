@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book your tickets online for the latest movies.">
+    <title>Cake Villa</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar */
+        nav { 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: palevioletred;
+            padding: 20px 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            transition: background 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: maroon;
+        }
+
+        /* intro Section */
+        .intro {
+            height: 100vh;
+            color: maroon;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: url(cake.webp);
+            background-size: cover;
+            background-position: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .intro h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .cakes h1{
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            background-color: maroon;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: maroon;
+        }
+
+        /* Cakes Section */
+        .cakes {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #fff;
+            background: url(image2.jpg);
+            background-size: cover;
+            background-position: center;
+            color: maroon;
+        }
+
+        .movies h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: maroon;
+        }
+
+        .cakes-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .cakes-card {
+            background-color: #f1f1f1;
+            width: 250px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cakes-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cakes-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .cakes-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .cakes-card p {
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+
+        .order-btn {
+            background-color: maroon;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .order-btn:hover {
+            background-color: maroon;
+        }
+
+        /* Ticket Booking Section */
+        .ordering {
+            padding: 80px 20px;
+            background-color: #f7f7f7;
+            text-align: center;
+            background: url(image3.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .ordering h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: maroon;
+        }
+
+        .ordering form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ordering input, .ordering select {
+            width: 300px;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .ordering button {
+            background-color: maroon;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .ordering button:hover {
+            background-color: maroon;
+        }
+
+         /* Contact Section */
+         .contact {
+            padding: 80px 20px;
+            background-color: #fff;
+            text-align: center;
+            background: url(image14.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .contact-form button {
+            background-color: maroon;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: maroon;
+        }
+        /* Footer */
+        footer {
+            background-color: palevioletred;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            font-size: 16px;
+        }
+
+        footer a {
+            color: maroon;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .movie-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+        }   
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#cakes">Menue</a></li>
+            <li><a href="#ordering">Ordering</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro">
+        <h1>Cake Villa</h1>
+        <p>Order Your Favourite Cake And Enjoy The Sweetness</p>
+        <a href="#cakes" class="cta-btn">Explore Menue</a>
+    </section>
+
+    <!-- Cakes Section -->
+    <section id="cakes" class="cakes">
+        <h1>The Menu</h1>
+        <div class="cakes-cards">
+            <div class="cakes-card">
+                <img src="Čokoládová Drip tortička , torta, Čokoládové torty.jpg" alt="Chocolate Cake">
+                <h3>Chocolate Cake</h3>
+                <p>Rs.700</p>
+                <a href="#order" class="order-btn">Order</a>
+            </div>
+            <div class="cakes-card">
+                <img src="Scratch Pink Velvet Cake Recipe.jpg" alt="Vanilla Cake">
+                <h3>Vanilla Cake</h3>
+                <p>Rs.670</p>
+                <a href="#order" class="order-btn">Order</a>
+            </div>
+            <div class="cakes-card">
+                <img src="43 vind-ik-leuks, 9 reacties - jillpill….jpg" alt="Straeberry Cake">
+                <h3>Strawberry Cake </h3>
+                <p>Rs.630</p>
+                <a href="#order" class="order-btn">Order</a>
+            </div>
+            <div class="cakes-card">
+                <img src="Eggless Butterscotch Cake - step by step Indian style.jpg" alt="Butterscotch Cake">
+                <h3>Butterscotch Cake </h3>
+                <p>Rs.600</p>
+                <a href="#order" class="order-btn">Order</a>
+        </div>
+        <div class="cakes-card">
+            <img src="Red Velvet Layer Cake_ Delicious Recipe from Scratch.jpg" alt="Red Velvet Cake">
+            <h3>Red velvet Cake</h3>
+            <p>Rs.750</p>
+            <a href="#order" class="order-btn">Order</a></div>
+            <div class="cakes-card">
+                <img src="Fresh Berry Cake.jpg" alt="Fruit Cake">
+                <h3>Fruit Cake</h3>
+                <p>Rs.800</p>
+                <a href="#order" class="order-btn">Order</a></div>
+                <div class="cakes-card"> 
+                    <img src="Pineapple Coconut Pina Colada Cake (video).jpg" alt="Pineapple Cake"> 
+                    <h3>Pineapple Cake </h3>
+                    <p>Rs.630</p>
+                    <a href="#order" class="order-btn">Order</a></div>
+                    <div class="cakes-card">
+                        <img src="Easy Cheesecake Recipe.jpg" alt="Cheese Cake">
+                        <h3>Cheese Cake </h3>
+                        <p>Rs.650</p>
+                        <a href="#order" class="order-btn">Order</a></div>
+                        <div class="cakes-card">
+                            <img src="Gluten-Free Black Forest Cake.jpg" alt="Black Forest Cake">
+                            <h3>Black Forest Cake </h3>
+                            <p>Rs.730</p>
+                            <a href="#order" class="order-btn">Order</a></div>
+                            <div class="cakes-card">
+                                <img src="Golden Caramel Drip Cake.jpg" alt="Caramel Cake">
+                                <h3>Caramel Cake</h3>
+                                <p>Rs.600</p>
+                                <a href="#order" class="order-btn">Order</a></div>
+       </section>
+   
+       <!-- Oredring Section -->
+    <section id="ordering" class="ordering">
+        <h2>Place Your Order</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <select required>
+                <option value="">Select Flavour</option>
+                <option value="Cake1">Chocolate</option>
+                <option value="Cake2">Vanilla</option>
+                <option value="Cake3">Strawberry</option>
+                <option value="Cake4">Butterscotch Cake</value>
+                <option value="Cake5">Red velvet Cake</value>
+                <option value="Cake6">Fruit Cake</value>
+                <option value="Cake7">Pineapple Cake</value>
+                <option value="Cake8">Cheese Cake</value>
+                <option value="Cake9">Black Forest Cake</value>
+                <option value="Cake10">Caramel Cake</option>
+            </select>
+            <select required>
+                <option value="">Select Amount</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</value>
+                <option value="6">Six</value>
+                <option value="7">Seven</value>
+                <option value="8">Eight</value>
+                <option value="9">Nine</value>
+                <option value="10">Ten</value>
+            </select>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>    
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Online Cake Ordering | <a href="#contact">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>
